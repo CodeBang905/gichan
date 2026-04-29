@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기찬육수 | 전문 소스 납품 전문</title>
+<meta name="description" content="기찬육수 - 요식업 사장님을 위한 프리미엄 육수·소스 전문. 분말·액상 40종 이상, 샘플 신청 가능. 메뉴 하나 더, 매출은 두 배로.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown: #5C3D1E;
+    --brown-light: #8B6340;
+    --cream: #FDF6ED;
+    --cream-dark: #F5E9D4;
+    --gold: #C8922A;
+    --gold-light: #E8B84B;
+    --dark: #1A1208;
+    --gray: #6B6055;
+    --gray-light: #B5ADA4;
+    --white: #FFFFFF;
+    --red-accent: #C0392B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(28, 18, 8, 0.96);
+    backdrop-filter: blur(8px);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo img { height: 38px; }
+  .nav-logo span { color: var(--gold-light); font-size: 15px; font-weight: 500; letter-spacing: 0.05em; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1A1208 0%, #2E1C0A 50%, #3D2410 100%);
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8922A' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { max-width: 680px; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(200, 146, 42, 0.15);
+    border: 1px solid rgba(200, 146, 42, 0.4);
+    color: var(--gold-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--white);
+    line-height: 1.25;
+    font-weight: 700;
+    margin-bottom: 24px;
+    word-break: keep-all;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+  .hero p {
+    font-size: clamp(15px, 2vw, 18px);
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 40px;
+    word-break: keep-all;
+    max-width: 520px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.85);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .hero-stats {
+    margin-top: 64px;
+    display: flex; gap: 40px; flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 32px;
+  }
+  .hero-stat-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold-light);
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 80px 5%; }
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(24px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+    margin-bottom: 16px;
+    word-break: keep-all;
+  }
+  .section-desc {
+    font-size: 16px;
+    color: var(--gray);
+    max-width: 540px;
+    word-break: keep-all;
+    margin-bottom: 48px;
+  }
+
+  /* PAIN POINTS */
+  .pain-section { background: var(--white); }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .pain-card {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 28px 24px;
+    border-radius: 0 8px 8px 0;
+  }
+  .pain-icon { font-size: 28px; margin-bottom: 12px; }
+  .pain-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 8px;
+    word-break: keep-all;
+  }
+  .pain-card p { font-size: 14px; color: var(--gray); line-height: 1.65; word-break: keep-all; }
+
+  /* SOLUTION */
+  .solution-section { background: var(--cream); }
+  .solution-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    margin-top: 48px;
+    border: 1px solid #D4C4A8;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .solution-step {
+    padding: 36px 28px;
+    border-right: 1px solid #D4C4A8;
+    position: relative;
+  }
+  .solution-step:last-child { border-right: none; }
+  .step-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(200,146,42,0.15);
+    position: absolute;
+    top: 16px; right: 20px;
+    line-height: 1;
+  }
+  .step-icon { font-size: 24px; margin-bottom: 16px; }
+  .solution-step h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 8px;
+    word-break: keep-all;
+  }
+  .solution-step p { font-size: 14px; color: var(--gray); word-break: keep-all; }
+
+  /* PRODUCTS */
+  .products-section { background: var(--dark); }
+  .products-section .section-title { color: var(--white); }
+  .products-section .section-desc { color: rgba(255,255,255,0.55); }
+  .product-tabs {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .tab-btn {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.6);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .tab-btn:hover, .tab-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .product-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 20px 18px;
+    transition: all 0.2s;
+  }
+  .product-card:hover {
+    background: rgba(200,146,42,0.1);
+    border-color: rgba(200,146,42,0.4);
+    transform: translateY(-2px);
+  }
+  .product-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .tag-powder { background: rgba(200,146,42,0.2); color: var(--gold-light); }
+  .tag-liquid { background: rgba(30,100,160,0.25); color: #7EC8E3; }
+  .tag-complete { background: rgba(100,160,50,0.2); color: #A8D870; }
+  .product-card h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 6px;
+    word-break: keep-all;
+  }
+  .product-card p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    word-break: keep-all;
+    line-height: 1.5;
+  }
+
+  /* USE CASES */
+  .usecase-section { background: var(--white); }
+  .usecase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .usecase-card {
+    border: 1px solid #E5DDD0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .usecase-header {
+    background: var(--brown);
+    padding: 20px 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .usecase-emoji { font-size: 24px; }
+  .usecase-header h3 { color: var(--white); font-size: 17px; font-weight: 700; }
+  .usecase-header span { color: rgba(255,255,255,0.6); font-size: 13px; }
+  .usecase-body { padding: 20px 24px; }
+  .usecase-menu {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .usecase-body p { font-size: 14px; color: var(--gray); word-break: keep-all; line-height: 1.65; }
+  .usecase-sauce {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--brown-light);
+    background: var(--cream-dark);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  /* TRUST */
+  .trust-section { background: var(--cream-dark); }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .trust-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid #E5DDD0;
+  }
+  .trust-card .num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .trust-card .label {
+    font-size: 14px;
+    color: var(--gray);
+    word-break: keep-all;
+  }
+  .trust-card .desc {
+    font-size: 13px;
+    color: var(--gray-light);
+    margin-top: 6px;
+    word-break: keep-all;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, #2E1C0A 0%, #1A1208 100%);
+    text-align: center;
+    padding: 100px 5%;
+  }
+  .cta-section .section-title { color: var(--white); }
+  .cta-section p { color: rgba(255,255,255,0.6); font-size: 17px; margin-bottom: 40px; word-break: keep-all; }
+  .cta-boxes {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+  .cta-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 36px 40px;
+    min-width: 240px;
+    text-align: center;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .cta-box:hover {
+    background: rgba(200,146,42,0.12);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .cta-box-icon { font-size: 32px; margin-bottom: 12px; }
+  .cta-box h3 { color: var(--white); font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .cta-box p { color: rgba(255,255,255,0.5); font-size: 14px; }
+  .cta-box .cta-action {
+    display: inline-block;
+    margin-top: 20px;
+    background: var(--gold);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0D0A05;
+    padding: 48px 5% 32px;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 24px;
+  }
+  .footer-brand img { height: 40px; margin-bottom: 10px; }
+  .footer-brand p { font-size: 13px; max-width: 260px; word-break: keep-all; }
+  .footer-links h4 { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; margin-bottom: 14px; }
+  .footer-links a {
+    display: block;
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-contact { font-size: 13px; }
+  .footer-contact .phone {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    color: var(--gold-light);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .footer-bottom { font-size: 12px; text-align: center; }
+  .naver-cafe {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    background: #03C75A;
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* SCROLL ANIMATION */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-stats { gap: 24px; }
+    .solution-steps { grid-template-columns: 1fr; }
+    .solution-step { border-right: none; border-bottom: 1px solid #D4C4A8; }
+    .solution-step:last-child { border-bottom: none; }
+    .cta-boxes { flex-direction: column; align-items: center; }
+    .cta-box { width: 100%; max-width: 320px; }
+    .footer-inner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="logo.png" alt="기찬육수 로고">
+    <span>기찬육수</span>
+  </div>
+  <div class="nav-links">
+    <a href="#products">제품안내</a>
+    <a href="#usecase">활용사례</a>
+    <a href="#trust">납품현황</a>
+    <a href="#contact">문의하기</a>
+  </div>
+  <a href="tel:01064245466" class="nav-cta">📞 샘플 신청</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">요식업 전문 소스 · 육수 공급</div>
+    <h1>메뉴 하나 더,<br>매출은 <em>두 배로</em></h1>
+    <p>복잡한 육수 공정 없이, 기찬육수 소스 하나면 새 메뉴 추가 완료.<br>분말·액상 40종 이상 — 어떤 업종에든 맞는 소스가 있습니다.</p>
+    <div class="hero-btns">
+      <a href="tel:01064245466" class="btn-primary">무료 샘플 신청하기</a>
+      <a href="#products" class="btn-secondary">제품 전체 보기</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="hero-stat-num">40+</span>
+        <span class="hero-stat-label">소스 종류</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">분말·액상</span>
+        <span class="hero-stat-label">두 가지 형태</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">샘플</span>
+        <span class="hero-stat-label">무료 신청 가능</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain-section" id="pain">
+  <div class="section-label">사장님의 고민</div>
+  <div class="section-title">새 메뉴를 추가하고 싶지만…</div>
+  <div class="pain-grid fade-up">
+    <div class="pain-card">
+      <div class="pain-icon">⏱️</div>
+      <h3>육수 끓이는 데만 몇 시간</h3>
+      <p>매일 새벽부터 육수 작업이 필요해 인력·시간 비용이 만만치 않습니다.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">📉</div>
+      <h3>메뉴 추가는 리스크가 크다</h3>
+      <p>새 재료 구매, 레시피 개발, 교육까지 — 시도조차 부담스러운 게 현실입니다.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🧑‍🍳</div>
+      <h3>조리 스킬에 따라 맛이 달라진다</h3>
+      <p>직원이 바뀌면 맛이 달라지고, 클레임으로 이어지는 경험이 있으실 겁니다.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">💰</div>
+      <h3>원가 관리가 어렵다</h3>
+      <p>식재료 단가 변동에 육수 원가도 같이 흔들려서 수익을 예측하기 어렵습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution-section">
+  <div class="section-label">기찬육수의 해결책</div>
+  <div class="section-title">소스 하나로 해결됩니다</div>
+  <div class="solution-steps fade-up">
+    <div class="solution-step">
+      <div class="step-num">01</div>
+      <div class="step-icon">📦</div>
+      <h3>샘플 신청</h3>
+      <p>전화 한 통이면 업종에 맞는 샘플을 무료로 받아보실 수 있습니다.</p>
+    </div>
+    <div class="solution-step">
+      <div class="step-num">02</div>
+      <div class="step-icon">🧪</div>
+      <h3>직접 테스트</h3>
+      <p>주방에서 직접 써보시고, 맛과 원가를 확인하세요.</p>
+    </div>
+    <div class="solution-step">
+      <div class="step-num">03</div>
+      <div class="step-icon">📋</div>
+      <h3>메뉴 추가</h3>
+      <p>레시피 가이드 그대로만 따라하면 누가 만들어도 같은 맛.</p>
+    </div>
+    <div class="solution-step">
+      <div class="step-num">04</div>
+      <div class="step-icon">📈</div>
+      <h3>매출 상승</h3>
+      <p>새 메뉴 하나로 객단가 올리고 신규 고객을 유입하세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-label">제품 라인업</div>
+  <div class="section-title" style="color:#fff;">40종 이상의 소스·육수</div>
+  <div class="section-desc">분말과 액상 두 가지 형태로, 어떤 메뉴에도 맞는 소스를 공급합니다.</div>
+
+  <div class="product-tabs">
+    <button class="tab-btn active" onclick="filterProduct('all')">전체</button>
+    <button class="tab-btn" onclick="filterProduct('powder')">분말</button>
+    <button class="tab-btn" onclick="filterProduct('liquid')">액상</button>
+    <button class="tab-btn" onclick="filterProduct('complete')">완제품·기타</button>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+    <!-- 분말 -->
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>해산물 소스</h4>
+      <p>칼국수, 만두전골, 시락국, 샤브, 굴국밥</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>멸치진국 소스</h4>
+      <p>칼국수, 잔치국수, 찌개, 국, 탕</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>동태/해물탕 소스</h4>
+      <p>동태탕, 대구탕, 아구탕, 매운탕, 해물탕</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>황태 해산물 소스</h4>
+      <p>미역국, 콩나물국밥, 황태해장국, 칼국수</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>조개 만능소스</h4>
+      <p>칼국수, 해물탕, 조개탕, 시락국 다용도</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>맑은국밥/돼지국밥 소스</h4>
+      <p>맑은돼지국밥, 순대국밥, 우동국밥</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>갈비탕&온육수 소스</h4>
+      <p>갈비탕, 냉면·밀면 온육수용</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>코다리·생선조림 소스</h4>
+      <p>아구찜, 해물찜, 뼈찜</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>어묵탕&우동 육수</h4>
+      <p>어묵탕, 우동 전용 육수</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>감자탕·뼈다귀해장국 소스</h4>
+      <p>감자탕, 뼈해장국 전용</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>미역국 소스</h4>
+      <p>미역국 전용</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>소고기국·내장탕 소스</h4>
+      <p>소고기국, 내장탕, 선지국</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>복국·복전골 소스</h4>
+      <p>복국, 복전골 전용</p>
+    </div>
+    <div class="product-card" data-type="powder">
+      <span class="product-tag tag-powder">분말</span>
+      <h4>김치찌개·김치찜 소스</h4>
+      <p>김치찌개, 김치찜 전용</p>
+    </div>
+    <!-- 액상 -->
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>추어탕 재료</h4>
+      <p>추어매운탕, 추어탕, 어탕국수, 어제비</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>냉면육수 원액</h4>
+      <p>기찬육수, 사골육수, 동치미육수, 묵사발</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>두루치기 소스</h4>
+      <p>두부/오징어 두루치기, 콩불, 돼지 두루치기</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>찌개·전골소스</h4>
+      <p>곱창전골, 닭도리탕 얼큰탕용</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>기찬 냉면비빔장</h4>
+      <p>냉면 비빔장 전용</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>만능비빔장</h4>
+      <p>냉면, 파절이, 쫄면</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>들기름 막국수 참맛소스</h4>
+      <p>들기름 막국수 전용</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>매밀소바 육수</h4>
+      <p>메밀소바 전용 육수</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>짬뽕·순두부용 소스 2종</h4>
+      <p>짬뽕, 순두부찌개 전용</p>
+    </div>
+    <div class="product-card" data-type="liquid">
+      <span class="product-tag tag-liquid">액상</span>
+      <h4>마라탕용 소스 3종</h4>
+      <p>마라탕 전용 소스 3가지</p>
+    </div>
+    <!-- 완제품·기타 -->
+    <div class="product-card" data-type="complete">
+      <span class="product-tag tag-complete">완제품</span>
+      <h4>왕갈비탕 (1kg)</h4>
+      <p>바로 데워서 제공 가능</p>
+    </div>
+    <div class="product-card" data-type="complete">
+      <span class="product-tag tag-complete">완제품</span>
+      <h4>양념쭈꾸미·연탄불고기</h4>
+      <p>완제품 바로 사용</p>
+    </div>
+    <div class="product-card" data-type="complete">
+      <span class="product-tag tag-complete">완제품</span>
+      <h4>돼지국밥·양념돼지갈비</h4>
+      <p>완제품 제공</p>
+    </div>
+    <div class="product-card" data-type="complete">
+      <span class="product-tag tag-complete">면류</span>
+      <h4>메밀소바·함흥냉면 외</h4>
+      <p>메밀냉면, 쌀냉면, 쌀막국수, 쌀칼국수</p>
+    </div>
+    <div class="product-card" data-type="complete">
+      <span class="product-tag tag-complete">양념</span>
+      <h4>돼지갈비양념·겉절이양념</h4>
+      <p>들기름, 깨소금, 고운김가루</p>
+    </div>
+    <div class="product-card" data-type="complete">
+      <span class="product-tag tag-complete">소고기</span>
+      <h4>프리미엄 갈비살 (캐나다)</h4>
+      <p>벌집 갈비살, 생 안창살(호주) 포함</p>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="usecase-section" id="usecase">
+  <div class="section-label">활용 사례</div>
+  <div class="section-title">이런 가게에서 쓰고 있습니다</div>
+  <div class="section-desc">기찬육수 소스로 실제 메뉴를 추가한 사례들입니다.</div>
+  <div class="usecase-grid fade-up">
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <div class="usecase-emoji">🍜</div>
+        <div>
+          <h3>분식집 사장님</h3>
+          <span>기존: 떡볶이, 순대</span>
+        </div>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-menu">→ 어묵탕·우동 신메뉴 추가</div>
+        <p>별도 육수 작업 없이 어묵탕 메뉴를 추가. 겨울 시즌 매출이 크게 올랐습니다.</p>
+        <div class="usecase-sauce">사용 소스: 어묵탕&우동 육수 (분말)</div>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <div class="usecase-emoji">🥩</div>
+        <div>
+          <h3>고깃집 사장님</h3>
+          <span>기존: 삼겹살, 목살</span>
+        </div>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-menu">→ 된장찌개·냉면 사이드 추가</div>
+        <p>식사 메뉴 보강으로 테이블 회전율과 객단가가 동시에 올랐습니다.</p>
+        <div class="usecase-sauce">사용 소스: 냉면육수 원액, 찌개소스 (액상)</div>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <div class="usecase-emoji">🍱</div>
+        <div>
+          <h3>도시락·반찬가게</h3>
+          <span>기존: 기본 반찬류</span>
+        </div>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-menu">→ 조림·찜류 반찬 라인 확대</div>
+        <p>코다리조림, 생선조림 반찬을 추가해 프리미엄 도시락 라인을 만들었습니다.</p>
+        <div class="usecase-sauce">사용 소스: 코다리·생선조림 소스 (분말)</div>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <div class="usecase-emoji">🏪</div>
+        <div>
+          <h3>편의점·카페테리아</h3>
+          <span>기존: 간편식 위주</span>
+        </div>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-menu">→ 즉석 냉면·막국수 코너 신설</div>
+        <p>여름 한정 메뉴로 즉석 냉면 코너를 만들어 매출 공백을 채웠습니다.</p>
+        <div class="usecase-sauce">사용 소스: 냉면육수 원액, 비빔장 (액상)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-section" id="trust">
+  <div class="section-label">왜 기찬육수인가</div>
+  <div class="section-title">숫자로 확인하세요</div>
+  <div class="trust-grid fade-up">
+    <div class="trust-card">
+      <span class="num">40<span style="font-size:22px;">종+</span></span>
+      <div class="label">소스 라인업</div>
+      <div class="desc">분말·액상·완제품 포함</div>
+    </div>
+    <div class="trust-card">
+      <span class="num">무료</span>
+      <div class="label">샘플 신청</div>
+      <div class="desc">전화 한 통으로 가능</div>
+    </div>
+    <div class="trust-card">
+      <span class="num">B2B</span>
+      <div class="label">사업자 전용 납품</div>
+      <div class="desc">중소기업·요식업 특화</div>
+    </div>
+    <div class="trust-card">
+      <span class="num">네이버</span>
+      <div class="label">카페 "꿈꿈푸드"</div>
+      <div class="desc">커뮤니티에서 후기 확인</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-label" style="color:var(--gold);">지금 바로 시작하세요</div>
+  <div class="section-title">샘플 신청부터 시작하면<br>됩니다</div>
+  <p>부담 없이 써보시고, 맞으면 쓰세요.<br>기찬육수는 첫 샘플을 무료로 드립니다.</p>
+  <div class="cta-boxes">
+    <a href="tel:01064245466" class="cta-box">
+      <div class="cta-box-icon">📞</div>
+      <h3>전화 문의</h3>
+      <p>바로 연결되어 빠른 상담 가능합니다</p>
+      <div class="cta-action">010-6424-5466</div>
+    </a>
+    <a href="https://cafe.naver.com/kkumkkumfood" target="_blank" class="cta-box">
+      <div class="cta-box-icon">☕</div>
+      <h3>네이버 카페</h3>
+      <p>꿈꿈푸드 카페에서 후기와 정보 확인</p>
+      <div class="cta-action">카페 바로가기</div>
+    </a>
+    <a href="https://smartstore.naver.com" target="_blank" class="cta-box">
+      <div class="cta-box-icon">🛒</div>
+      <h3>스마트스토어</h3>
+      <p>온라인으로 바로 주문 가능합니다</p>
+      <div class="cta-action">스토어 바로가기</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="기찬육수">
+      <p style="margin-top:10px;">요식업 사장님을 위한<br>프리미엄 소스·육수 전문 공급</p>
+    </div>
+    <div class="footer-links">
+      <h4>바로가기</h4>
+      <a href="#products">제품안내</a>
+      <a href="#usecase">활용사례</a>
+      <a href="#trust">왜 기찬육수인가</a>
+      <a href="#contact">문의하기</a>
+    </div>
+    <div class="footer-contact">
+      <span class="phone">010-6424-5466</span>
+      <p>샘플 신청 및 납품 문의</p>
+      <a href="https://cafe.naver.com/kkumkkumfood" target="_blank" class="naver-cafe">네이버 카페 꿈꿈푸드</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 기찬육수. All rights reserved.
+  </div>
+</footer>
+
+<script>
+function filterProduct(type) {
+  const cards = document.querySelectorAll('.product-card');
+  const tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  cards.forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
